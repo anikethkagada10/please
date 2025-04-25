@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      width: 320px;
+      height: 470px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      position: relative;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .card.open .front {
+      transform: rotateY(180deg);
+    }
+
+    .card.open .back {
+      transform: rotateY(0deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+      transition: transform 1s ease;
+    }
+
+    .front {
+      background: #fff;
+      transform: rotateY(0deg);
+    }
+
+    .back {
+      background: #ffe0e6;
+      transform: rotateY(-180deg);
+    }
+
+    .heart {
+      font-size: 48px;
+      animation: pulse 1.5s infinite;
+      color: #ff3366;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      font-size: 18px;
+      color: #333;
+      margin: 20px 0;
+    }
+
+    iframe {
+      border-radius: 12px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" onclick="openCard()">
+  <div class="front">
+    <h2>Tap to open 💌</h2>
+  </div>
+  <div class="back">
+    <div class="heart">❤️</div>
+    <div class="message">
+      Man Jau Na Yrr plss <br>
+      
+      *Koi Vi Nahi* like you. 💫
+    </div>
+    <!-- Spotify Embed for "Koi Vi Nahi" -->
+    <iframe style="border-radius:12px" 
+           src="https://open.spotify.com/embed/track/2QNU1aSZwHbdlVGK6IrX8V?utm_source=generator"
+            width="250" 
+            height="80" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  function openCard() {
+    document.querySelector('.card').classList.add('open');
+  }
+</script>
+
+</body>
+</html>
